@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,600;0,700;0,800;1,400&display=swap');
+
+:root {
+  /* Warm Ivory Palette & Soft Charcoal Typography Tokens */
+  --bg-primary: rgb(245, 244, 237);     /* Fond chaud ivoire / parchemin */
+  --bg-surface: #FFFFFF;                 /* Cartes blanc pur au contraste éclatant */
+  --bg-subtle: #EAE8DF;                  /* Fond secondaire pour emplacements visuels et bento */
+  --bg-dark: #1C1B18;                    /* Espresso / Charcoal très sombre pour boutons et badges */
+  
+  --text-primary: #1C1B18;               /* Encre charcoal chaude (évite le noir pur agressif) */
+  --text-secondary: #58564F;             /* Taupe / gris chaud pour le corps de texte */
+  --text-muted: #8C897E;                 /* Muted warm gray pour labels, dates et métadonnées */
+  --text-on-dark: #F5F4ED;               /* Texte sur fond sombre */
+  
+  --border-color: #E2E0D5;               /* Bordures fines chaudes et subtiles */
+  --border-subtle: #EBE9DE;              /* Séparateurs légers */
+  --border-focus: #1C1B18;
+  
+  /* Typography - Dedicated Heading & Body Fonts */
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family: var(--font-body);
+  
+  /* Spacing & Radii */
+  --container-max: 1080px;
+  --container-narrow: 840px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}

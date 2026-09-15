@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bertrand Humm — Product Designer</title>
+  <meta name="description" content="Portfolio de Bertrand Humm, Senior Product Designer spécialisé dans la refonte d'applications complexes, de Design Systems et d'écosystèmes digitaux.">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="./src/css/style.css">
+  <link rel="stylesheet" href="./src/css/project.css">
+</head>
+<body>
+  <!-- Root App Container -->
+  <div id="app"></div>
+
+  <!-- Toast Copy Notification -->
+  <div id="copy-toast" class="toast-copied" role="status" aria-live="polite"></div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visionneuse d'images" hidden>
+    <button class="lightbox-close" id="lightbox-close" aria-label="Fermer">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Image précédente">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="" class="lightbox-image" />
+      <video id="lightbox-video" src="" class="lightbox-image" autoplay loop muted playsinline style="display:none;"></video>
+      <div class="lightbox-caption-bar">
+        <span id="lightbox-label" class="lightbox-label"></span>
+        <span id="lightbox-counter" class="lightbox-counter"></span>
+      </div>
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Image suivante">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M9 18l6-6-6-6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- JS Entrypoint -->
+  <script type="module" src="./src/js/main.js"></script>
+</body>
+</html>
