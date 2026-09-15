@@ -234,10 +234,6 @@ function renderHomeView() {
           <p class="designer-bio">
             ${t('designerBio')}
           </p>
-          <div class="status-badge">
-            <span class="status-dot"></span>
-            ${t('statusAvailable')}
-          </div>
         </div>
       </div>
     </header>
