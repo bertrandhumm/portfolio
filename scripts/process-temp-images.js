@@ -4,9 +4,13 @@ import sharp from 'sharp';
 
 const TEMP_DIR = path.resolve('temp');
 const OUTPUT_DIR = path.resolve('public/assets/projects');
+const ROOT_OUTPUT_DIR = path.resolve('assets/projects');
 
 if (!fs.existsSync(OUTPUT_DIR)) {
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+}
+if (!fs.existsSync(ROOT_OUTPUT_DIR)) {
+  fs.mkdirSync(ROOT_OUTPUT_DIR, { recursive: true });
 }
 
 async function processImages() {
@@ -33,19 +37,23 @@ async function processImages() {
     // Video files: directly copy them
     if (['.webm', '.mp4'].includes(ext)) {
       const outputPath = path.join(OUTPUT_DIR, `${filenameWithoutExt}${ext}`);
+      const rootOutputPath = path.join(ROOT_OUTPUT_DIR, `${filenameWithoutExt}${ext}`);
       fs.copyFileSync(inputPath, outputPath);
-      console.log(`✓ Vidéo copiée : ${file} -> public/assets/projects/${filenameWithoutExt}${ext}`);
+      fs.copyFileSync(inputPath, rootOutputPath);
+      console.log(`✓ Vidéo copiée : ${file} -> assets/projects/${filenameWithoutExt}${ext}`);
       continue;
     }
 
     const outputPath = path.join(OUTPUT_DIR, `${filenameWithoutExt}.webp`);
+    const rootOutputPath = path.join(ROOT_OUTPUT_DIR, `${filenameWithoutExt}.webp`);
 
     await sharp(inputPath, { animated: true })
       .resize({ width: 1600, withoutEnlargement: true })
       .webp({ quality: 82, loop: 0 })
       .toFile(outputPath);
 
-    console.log(`✓ Converti & Optimisé : ${file} -> public/assets/projects/${filenameWithoutExt}.webp`);
+    fs.copyFileSync(outputPath, rootOutputPath);
+    console.log(`✓ Converti & Optimisé : ${file} -> assets/projects/${filenameWithoutExt}.webp`);
   }
 }
 

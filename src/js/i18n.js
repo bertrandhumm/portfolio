@@ -1,19 +1,42 @@
 // ----------------------------------------------------
 // i18n — Language management module
+// Standard ES module imports (GitHub Pages & Native browser compatible)
 // ----------------------------------------------------
+
+// FR Data
+import { UI as uiFR } from '../data/fr/ui.js';
+import { RESUME_DATA as resumeFR } from '../data/fr/resume.js';
+import viamichelinFR from '../data/fr/projects/viamichelin.js';
+import virtuoBackofficeFR from '../data/fr/projects/virtuo-backoffice.js';
+import virtuoExpertAppFR from '../data/fr/projects/virtuo-expert-app.js';
+import sliceFR from '../data/fr/projects/slice.js';
+
+// EN Data
+import { UI as uiEN } from '../data/en/ui.js';
+import { RESUME_DATA as resumeEN } from '../data/en/resume.js';
+import viamichelinEN from '../data/en/projects/viamichelin.js';
+import virtuoBackofficeEN from '../data/en/projects/virtuo-backoffice.js';
+import virtuoExpertAppEN from '../data/en/projects/virtuo-expert-app.js';
+import sliceEN from '../data/en/projects/slice.js';
 
 const SUPPORTED_LANGS = ['fr', 'en'];
 const DEFAULT_LANG = 'fr';
 const STORAGE_KEY = 'portfolio-lang';
 
-// Eagerly load all UI label files: ../data/fr/ui.js, ../data/en/ui.js
-const uiModules = import.meta.glob('../data/*/ui.js', { eager: true });
+const uiData = {
+  fr: uiFR,
+  en: uiEN
+};
 
-// Eagerly load all resume files: ../data/fr/resume.js, ../data/en/resume.js
-const resumeModules = import.meta.glob('../data/*/resume.js', { eager: true });
+const resumeDataMap = {
+  fr: resumeFR,
+  en: resumeEN
+};
 
-// Eagerly load all project files: ../data/fr/projects/*.js, ../data/en/projects/*.js
-const projectModules = import.meta.glob('../data/*/projects/*.js', { eager: true });
+const projectsDataMap = {
+  fr: [viamichelinFR, virtuoBackofficeFR, virtuoExpertAppFR, sliceFR],
+  en: [viamichelinEN, virtuoBackofficeEN, virtuoExpertAppEN, sliceEN]
+};
 
 /**
  * Detect browser language, fallback to DEFAULT_LANG
@@ -45,12 +68,7 @@ export function setLang(lang) {
  * Helper to get UI labels dictionary for a given language
  */
 function getLabels(lang) {
-  const mod = uiModules[`../data/${lang}/ui.js`];
-  if (mod && (mod.UI || mod.default)) {
-    return mod.UI || mod.default;
-  }
-  const fallbackMod = uiModules[`../data/${DEFAULT_LANG}/ui.js`];
-  return fallbackMod ? (fallbackMod.UI || fallbackMod.default) : {};
+  return uiData[lang] || uiData[DEFAULT_LANG] || {};
 }
 
 /**
@@ -70,23 +88,7 @@ export function t(key, ...args) {
  */
 export function loadResumeData() {
   const lang = getCurrentLang();
-
-  // Try current language
-  const langKey = `../data/${lang}/resume.js`;
-  if (resumeModules[langKey]) {
-    return resumeModules[langKey].RESUME_DATA || resumeModules[langKey].default;
-  }
-
-  // Fallback: try other language
-  const fallbackLang = lang === 'fr' ? 'en' : 'fr';
-  const fallbackKey = `../data/${fallbackLang}/resume.js`;
-  if (resumeModules[fallbackKey]) {
-    return resumeModules[fallbackKey].RESUME_DATA || resumeModules[fallbackKey].default;
-  }
-
-  // Last resort: return first available
-  const firstKey = Object.keys(resumeModules)[0];
-  return firstKey ? (resumeModules[firstKey].RESUME_DATA || resumeModules[firstKey].default) : null;
+  return resumeDataMap[lang] || resumeDataMap[DEFAULT_LANG] || null;
 }
 
 /**
@@ -95,28 +97,8 @@ export function loadResumeData() {
  */
 export function loadProjectsData() {
   const lang = getCurrentLang();
-  const fallbackLang = lang === 'fr' ? 'en' : 'fr';
-
-  // Find all unique project filenames across all language folders
-  const projectFilenames = new Set();
-  Object.keys(projectModules).forEach(path => {
-    const parts = path.split('/');
-    const filename = parts[parts.length - 1];
-    projectFilenames.add(filename);
-  });
-
-  const projects = [];
-  projectFilenames.forEach(filename => {
-    const langKey = `../data/${lang}/projects/${filename}`;
-    const fallbackKey = `../data/${fallbackLang}/projects/${filename}`;
-
-    const mod = projectModules[langKey] || projectModules[fallbackKey];
-    if (mod && (mod.default || mod.project)) {
-      projects.push(mod.default || mod.project);
-    }
-  });
-
-  return projects.sort((a, b) => (a.order || 99) - (b.order || 99));
+  const list = projectsDataMap[lang] || projectsDataMap[DEFAULT_LANG] || [];
+  return [...list].sort((a, b) => (a.order || 99) - (b.order || 99));
 }
 
 /**
