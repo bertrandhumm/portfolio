@@ -5,7 +5,7 @@ export default {
   description: "Transforming Michelin's legacy navigation tool into a \"Slow Travel\" discovery ecosystem focused on regional discovery, local curation, and scenic routes.",
   tags: ["Product Strategy", "UX/UI", "Mobile & Web"],
   role: "Lead Product Designer",
-  year: "2023 - 2024",
+  year: "2023 - 2025",
   impact: "Ratings 3.7 → 4.0 / Future-proof interface",
 
   // Thumbnail Home & Hero Cover Image
