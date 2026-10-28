@@ -15,16 +15,90 @@ let resumeData = null; // loaded asynchronously
 // Lightbox state
 let lbImages = [];   // [{ src, label }]
 let lbIndex = 0;
+let prevDocTitle = '';
 
 function isVideoSrc(src) {
   return typeof src === 'string' && (src.endsWith('.webm') || src.endsWith('.mp4'));
 }
 
-function renderMediaTag(src, alt = '', className = '', fitClass = '') {
+function renderMediaTag(src, alt = '', className = '', fitClass = '', isPrint = false) {
   if (isVideoSrc(src)) {
     return `<video src="${src}" class="${className} ${fitClass}" autoplay loop muted playsinline disablepictureinpicture aria-label="${alt}"></video>`;
   }
-  return `<img src="${src}" alt="${alt}" class="${className} ${fitClass}" loading="lazy" />`;
+  const loadingAttr = isPrint ? 'loading="eager" decoding="sync"' : 'loading="lazy"';
+  return `<img src="${src}" alt="${alt}" class="${className} ${fitClass}" ${loadingAttr} />`;
+}
+
+// ----------------------------------------------------
+// DYNAMIC PRINT PAGE MARGINS & RUNNING FOLIOS
+// ----------------------------------------------------
+function updatePrintPageStyles(mode = 'portfolio') {
+  const now = new Date();
+  const lang = getCurrentLang();
+  const formattedDate = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-FR' : 'en-US', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(now);
+
+  const dateText = lang === 'fr' ? `Version du ${formattedDate}` : `Version as of ${formattedDate}`;
+  const headerTitle = mode === 'cv' ? 'Bertrand Humm • CV' : 'Bertrand Humm • Portfolio';
+
+  let styleEl = document.getElementById('dynamic-print-page-style');
+  if (!styleEl) {
+    styleEl = document.createElement('style');
+    styleEl.id = 'dynamic-print-page-style';
+    document.head.appendChild(styleEl);
+  }
+
+  styleEl.textContent = `
+    @page {
+      margin: 25mm 25mm 25mm 25mm;
+      size: A4 portrait;
+
+      @top-left {
+        content: "${headerTitle}";
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 8pt;
+        color: #888;
+        font-weight: 500;
+      }
+
+      @bottom-left {
+        content: "${dateText}";
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 8pt;
+        color: #888;
+      }
+
+      @bottom-right {
+        content: counter(page);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        font-size: 8pt;
+        color: #888;
+        font-weight: 500;
+      }
+    }
+
+    @page:first {
+      @top-left {
+        content: none;
+      }
+    }
+  `;
+}
+
+function clearPortfolioPrintStyles() {
+  const styleEl = document.getElementById('dynamic-print-page-style');
+  if (styleEl) {
+    styleEl.textContent = `
+      @page {
+        margin: 25mm 25mm 25mm 25mm;
+        size: A4 portrait;
+      }
+    `;
+  }
 }
 
 function initApp() {
@@ -35,6 +109,7 @@ function initApp() {
   router = new Router(renderHomeView, renderProjectView);
   router.init();
   setupGlobalEvents();
+  updatePrintPageStyles();
 }
 
 /**
@@ -43,6 +118,7 @@ function initApp() {
 function onLangChange(newLang) {
   document.documentElement.lang = newLang;
   resumeData = loadResumeData();
+  updatePrintPageStyles();
   router.handleRoute();
 }
 
@@ -106,7 +182,7 @@ function renderCvSectionHtml() {
       <div class="container">
         <!-- PRINT ONLY HEADER -->
         <div class="cv-print-header">
-          <h1 class="cv-print-name">Bertrand Humm</h1>
+          <h1 class="cv-print-name">Bertrand Humm &nbsp;•&nbsp; CV</h1>
           <p class="cv-print-role">UX Architect &amp; Venture Designer</p>
           <p class="cv-print-contact">bertrandhumm.work@gmail.com - 06 65 53 04 88</p>
         </div>
@@ -185,6 +261,67 @@ function renderCvSectionHtml() {
 }
 
 // ----------------------------------------------------
+// PORTFOLIO PRINT VIEW COMPONENT RENDERER
+// ----------------------------------------------------
+function renderPortfolioPrintHtml(projects) {
+  if (!projects || projects.length === 0) return '';
+
+  const projectsHtml = projects.map(project => {
+    const heroImageHtml = project.heroImage && project.heroImage.src ? `
+      <div class="project-hero-media">
+        <img src="${project.heroImage.src}" alt="${project.heroImage.label || project.title}" class="hero-img" loading="eager" decoding="sync" />
+      </div>
+    ` : '';
+
+    const sectionsHtml = (project.sections || []).map(section => renderSection(section, true)).join('');
+
+    return `
+      <article class="portfolio-print-project" data-project-id="${project.id}">
+        <header class="project-hero">
+          <div class="project-category-tag">${(project.tags || []).join(' • ')}</div>
+          <h2 class="project-hero-title">${project.title}</h2>
+          <p class="project-hero-subtitle">${project.description || project.subtitle || ''}</p>
+
+          <div class="project-meta-grid">
+            <div>
+              <div class="meta-item-label">${t('roleLabel')}</div>
+              <div class="meta-item-value">${project.role || '—'}</div>
+            </div>
+            <div>
+              <div class="meta-item-label">${t('yearLabel')}</div>
+              <div class="meta-item-value">${project.year || '—'}</div>
+            </div>
+            <div>
+              <div class="meta-item-label">${t('impactLabel')}</div>
+              <div class="meta-item-value">${project.impact || '—'}</div>
+            </div>
+          </div>
+
+          ${heroImageHtml}
+        </header>
+
+        <div class="project-content-body">
+          ${sectionsHtml}
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  return `
+    <section class="portfolio-print-view" id="portfolio-print-view">
+      <div class="portfolio-print-header">
+        <h1 class="portfolio-print-main-title">Bertrand Humm &nbsp;•&nbsp; Portfolio</h1>
+        <p class="portfolio-print-author">UX Architect &amp; Venture Designer</p>
+        <p class="portfolio-print-contact">bertrandhumm.work@gmail.com - 06 65 53 04 88</p>
+      </div>
+      <div class="portfolio-print-projects">
+        ${projectsHtml}
+      </div>
+    </section>
+  `;
+}
+
+// ----------------------------------------------------
 // HOME VIEW RENDERER
 // ----------------------------------------------------
 function renderHomeView() {
@@ -241,12 +378,27 @@ function renderHomeView() {
     <!-- CASE STUDIES SECTION -->
     <main class="case-studies-section">
       <div class="container">
-        <div class="section-title">${t('selectedProjects')}</div>
+        <div class="cv-header-row projects-header-row">
+          <div class="cv-title-group">
+            <h2 class="section-title" style="margin-bottom: 0;">${t('selectedProjects')}</h2>
+          </div>
+          <button type="button" class="cv-download-btn portfolio-download-btn" id="download-portfolio-btn" aria-label="${t('downloadPdf')}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>${t('downloadPdf')}</span>
+          </button>
+        </div>
         <div class="projects-grid">
           ${projectsGridHtml}
         </div>
       </div>
     </main>
+
+    <!-- PORTFOLIO PRINT VIEW (PRINT ONLY) -->
+    ${renderPortfolioPrintHtml(projects)}
 
     <!-- CURRICULUM VITAE SECTION -->
     ${renderCvSectionHtml()}
@@ -290,7 +442,53 @@ function renderHomeView() {
     });
   });
 
-  // Attach Download PDF handler (direct download if PDF exists, otherwise browser print dialog)
+  // Attach Download Portfolio PDF handler
+  const downloadPortfolioBtn = document.getElementById('download-portfolio-btn');
+  if (downloadPortfolioBtn) {
+    downloadPortfolioBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      try {
+        const res = await fetch('assets/portfolio-bertrand-humm.pdf', { method: 'HEAD' });
+        const contentType = res.headers.get('content-type') || '';
+        if (res.ok && contentType.includes('pdf')) {
+          const link = document.createElement('a');
+          link.href = 'assets/portfolio-bertrand-humm.pdf';
+          link.download = 'Bertrand Humm - Portfolio.pdf';
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          return;
+        }
+      } catch (err) {
+        // Fallback to browser print/save-as-PDF
+      }
+      updatePrintPageStyles();
+      document.body.classList.remove('print-cv-mode');
+      document.body.classList.add('print-portfolio-mode');
+
+      // Preload & decode all print images to ensure they render in print preview
+      const printView = document.getElementById('portfolio-print-view');
+      if (printView) {
+        const imgs = Array.from(printView.querySelectorAll('img'));
+        await Promise.all(imgs.map(img => {
+          img.loading = 'eager';
+          if (img.complete && img.naturalHeight > 0) return Promise.resolve();
+          return new Promise(resolve => {
+            img.onload = resolve;
+            img.onerror = resolve;
+            const s = img.src;
+            img.src = s;
+          });
+        }));
+      }
+
+      prevDocTitle = document.title;
+      document.title = 'Bertrand Humm - Portfolio';
+      window.print();
+    });
+  }
+
+  // Attach Download CV PDF handler (direct download if PDF exists, otherwise browser print dialog)
   const downloadPdfBtn = document.getElementById('download-cv-btn');
   if (downloadPdfBtn) {
     downloadPdfBtn.addEventListener('click', async (e) => {
@@ -301,7 +499,7 @@ function renderHomeView() {
         if (res.ok && contentType.includes('pdf')) {
           const link = document.createElement('a');
           link.href = 'assets/resume-bertrand-humm.pdf';
-          link.download = 'Resume-Bertrand-Humm.pdf';
+          link.download = 'Bertrand Humm - CV.pdf';
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
@@ -310,6 +508,11 @@ function renderHomeView() {
       } catch (err) {
         // Fallback to browser print/save-as-PDF
       }
+      updatePrintPageStyles('cv');
+      document.body.classList.remove('print-portfolio-mode');
+      document.body.classList.add('print-cv-mode');
+      prevDocTitle = document.title;
+      document.title = 'Bertrand Humm - CV';
       window.print();
     });
   }
@@ -545,7 +748,7 @@ function formatMarkdown(text) {
     .replace(/\n/g, '<br>');
 }
 
-function renderSection(section) {
+function renderSection(section, isPrint = false) {
   if (!section) return '';
 
   switch (section.type) {
@@ -571,7 +774,7 @@ function renderSection(section) {
               const fitClass = img.fit === 'contain' ? 'img-contain' : '';
               return `
                 <div class="principle-bento-item ${fitClass ? 'principle-bento-contain' : ''}">
-                  ${renderMediaTag(img.src, img.label || p.title, 'principle-bento-img', fitClass)}
+                  ${renderMediaTag(img.src, img.label || p.title, 'principle-bento-img', fitClass, isPrint)}
                   ${img.label ? `<span class="img-caption-overlay">${img.label}</span>` : ''}
                 </div>
               `;
@@ -600,7 +803,7 @@ function renderSection(section) {
               <div class="principle-split-media">
                 ${imgList.map(img => img?.src ? `
                   <div class="principle-portrait-wrapper">
-                    ${renderMediaTag(img.src, img.label || p.title, 'principle-portrait-img')}
+                    ${renderMediaTag(img.src, img.label || p.title, 'principle-portrait-img', '', isPrint)}
                     ${img.label ? `<span class="img-caption-overlay">${img.label}</span>` : ''}
                   </div>
                 ` : '').join('')}
@@ -639,7 +842,7 @@ function renderSection(section) {
         if (typeof img === 'object' && img.src) {
           return `
             <div class="bento-item bento-item-media">
-              ${renderMediaTag(img.src, img.label || `Visuel ${i + 1}`, 'bento-img')}
+              ${renderMediaTag(img.src, img.label || `Visuel ${i + 1}`, 'bento-img', '', isPrint)}
               ${img.label ? `<span class="img-caption-overlay">${img.label}</span>` : ''}
             </div>
           `;
@@ -757,6 +960,14 @@ function showToast(message) {
 }
 
 function setupGlobalEvents() {
+  window.addEventListener('afterprint', () => {
+    document.body.classList.remove('print-portfolio-mode', 'print-cv-mode');
+    if (prevDocTitle) {
+      document.title = prevDocTitle;
+      prevDocTitle = '';
+    }
+  });
+
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (!lightboxEl.hasAttribute('hidden')) { closeLightbox(); return; }

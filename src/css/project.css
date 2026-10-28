@@ -579,7 +579,7 @@
 }
 
 /* Mobile Adjustments for Case Studies */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
   .bento-grid-2,
   .bento-grid-3 {
