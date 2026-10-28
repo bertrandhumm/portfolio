@@ -1,7 +1,7 @@
 export default {
   id: "slice",
   order: 4,
-  title: "Slice - Inventory & Fair Division",
+  title: "Slice — Inventory & Fair Division",
   description: "Creation of a mobile app for dividing personal property in estates, featuring AI-assisted inventory, empathetic UX to ease every step of the process, and a fair division algorithm with notary-ready legal value.",
   tags: ["Mobile App", "0 to 1", "UX, UI, Product, Tech"],
   role: "Founder",
@@ -19,7 +19,7 @@ export default {
     {
       type: "text",
       title: "Context",
-      content: "During an inheritance or divorce, dividing personal property all too often spirals into emotional conflicts due to messy spreadsheets and informal communication. Drawing from personal experience, I originally built this application for private family use. Given the unexpected enthusiasm and positive feedback, I decided to open it to a broader audience. **Slice** was born as an **impartial digital trusted third party** designed to defuse tension and bring peace of mind to this delicate life milestone."
+      content: "During an inheritance or divorce, dividing personal property all too often spirals into emotional conflicts due to messy spreadsheets and informal communication. Drawing from personal experience, I originally built this application for private family use. Given the unexpected enthusiasm and positive feedback from those around me, I decided to open it to a broader audience. **Slice** was born as a **trusted, impartial digital third party** designed to defuse tension and bring peace of mind to this delicate life milestone."
     },
     {
       type: "text",
@@ -52,7 +52,7 @@ export default {
         {
           num: "03",
           title: "100% Offline Capability",
-          description: "Engineered in Flutter/Hive, the application operates completely offline if inventory needs to be recorded without cellular reception in basements or attics.",
+          description: "Engineered in Flutter/Hive, the application operates completely offline if inventory needs to be recorded without cellular reception, in basements or attics for instance.",
           images: [
             { src: "assets/projects/slice-offline-1.webp", label: "Technical architecture diagram of offline data consolidation" }
           ]
@@ -78,14 +78,14 @@ export default {
         },
         {
           highlight: "Notary Endorsement",
-          text: "Now actively recommended and shared by legal and notary practices with their clients for amicable settlements."
+          text: "Now actively recommended and shared by notary offices with their clients for amicable settlements."
         }
       ]
     },
     {
       type: "reflection",
       title: "Reflection & Learnings",
-      content: "Carrying this 0 to 1 product from inception to launch, Slice confirmed that the deepest challenges lie in business logic modeling and compassionate UX for emotionally charged life moments. Undertaking this solo venture also reinforced my strong conviction in the power and leverage of cross-functional team collaboration, which would have saved precious time."
+      content: "Leading this 0-to-1 product from inception to launch proved that the deepest design challenges lie in business logic modeling and compassionate UX for emotionally charged life moments. Undertaking this solo venture also reinforced my conviction regarding the leverage of cross-functional team collaboration, which would have saved precious time here."
     }
   ]
 };

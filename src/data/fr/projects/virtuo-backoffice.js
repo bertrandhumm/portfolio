@@ -2,7 +2,7 @@ export default {
   id: "virtuo-backoffice",
   order: 2,
   title: "Virtuo Back Office",
-  description: "Refonte globale d'un outil métier critique supervisant 5 000+ véhicules sur 30+ villes européennes avec une nouvelle architecture 'Dashboard as a pivot', une logique de tiroirs contextuels et mise en conformité RGPD.",
+  description: "Refonte globale d'un outil métier critique supervisant 5 000+ véhicules sur 30+ villes européennes avec une nouvelle architecture « Dashboard as a Pivot », une logique de tiroirs contextuels et une mise en conformité RGPD.",
   tags: ["Service Design", "Back Office", "B2B"],
   role: "UX Designer",
   year: "2020 - 2021",
@@ -19,21 +19,21 @@ export default {
     {
       type: "text",
       title: "Contexte",
-      content: "Le back-office de Virtuo centralisait la gestion d'une flotte 100% connectée de plus de 5 000+ véhicules répartis sur 30+ villes européennes. Construit brique par brique depuis les débuts de la startup, le système était devenu un patchwork lourd et instable.\n\nLes équipes Ops faisaient face à de lourdes frictions : dispersion des données entre Looker et le BO, multi-tabbing compulsif, absence de filtres enregistrables et failles critiques de conformité RGPD."
+      content: "Le back-office de Virtuo centralisait la gestion d'une flotte 100 % connectée de 5 000+ véhicules répartis sur 30+ villes européennes. Construit brique par brique depuis les débuts de la startup, le système était devenu un patchwork lourd et instable.\n\nLes équipes Ops faisaient face à de lourdes frictions : dispersion des données entre Looker et le BO, multi-tabbing compulsif, absence de filtres enregistrables et failles critiques en matière de conformité RGPD."
     },
     {
       type: "text",
       title: "Méthodologie",
-      content: "J'ai mené un audit approfondi combinant de nombreux entretiens qualitatifs et workshops avec les équipes Ops et Tech, complété par une cartographie de l'arborescence et un benchmark sectoriel.\n\nCe diagnostic a révélé la tension fondamentale du métier : la nécessité d'une vision macro (« bird eye view » de la flotte et du taux d'occupation) couplée à un micro-management chirurgical (véhicule ou incident précis).\n\nPour sécuriser la livraison, nous avons structuré la conception en 4 sprints de wireframing itératif rythmés par des validations hebdomadaires à trois voix (Product Manager, Tech Lead et Ops Teams)."
+      content: "J'ai mené un audit approfondi combinant de nombreux entretiens qualitatifs et workshops avec les équipes Ops et Tech, complété par une cartographie de l'arborescence et un benchmark sectoriel.\n\nCe diagnostic a révélé la tension fondamentale du métier : la nécessité d'une vision macro (« bird's-eye view » de la flotte et du taux d'occupation) couplée à un micro-management chirurgical (véhicule ou incident précis).\n\nPour sécuriser la livraison, nous avons structuré la conception en 4 sprints de wireframing itératifs rythmés par des validations hebdomadaires à trois voix (Product Manager, Tech Lead et équipes Ops)."
     },
     {
       type: "principles",
-      title: "Les 3 Principes de Conception",
+      title: "Les 3 principes de conception",
       items: [
         {
           num: "01",
           title: "Le « Dashboard as a Pivot » & Tiroirs contextuels imbriqués",
-          description: "J'ai proposé de repositionner le back office comme source de vérité opérationnelle pour limiter le recours à Looker dans le travail quotidien. Pour éliminer le multi-tabbing compulsif, la vue macro de la flotte reste ancrée en arrière-plan pendant que des tiroirs contextuels (Slide-over Drawers) s'ouvrent en cascade à droite pour inspecter un véhicule et déclencher une action sans quitter son contexte.",
+          description: "J'ai proposé de repositionner le back-office comme source de vérité opérationnelle pour limiter le recours à Looker dans le travail quotidien. Pour éliminer le multi-tabbing compulsif, la vue macro de la flotte reste ancrée en arrière-plan pendant que des tiroirs contextuels (Slide-over Drawers) s'ouvrent en cascade à droite pour inspecter un véhicule et déclencher une action sans quitter son contexte.",
           images: [
             { src: "assets/projects/virtuo-backoffice-pivot-1.webp", label: "Affichage compact pour revue rapide de la flotte" },
             { src: "assets/projects/virtuo-backoffice-pivot-2.webp", label: "Premier tiroir de détail (fiche véhicule & télématique)" },
@@ -68,19 +68,19 @@ export default {
           text: "Alignement parfait du BO comme unique outil opérationnel et recentrage de Looker sur la BI."
         },
         {
-          highlight: "1 seul tab ouvert",
+          highlight: "1 seul onglet ouvert",
           text: "Suppression totale de la dispersion en onglets grâce aux panneaux contextuels latéraux."
         },
         {
-          highlight: "-40% Temps Ops*",
-          text: "Déclaré à +1Y par Virtuo. Gain d'efficacité massif sur le traitement des incidents de flotte et le guidage des équipes."
+          highlight: "-40 % Temps Ops*",
+          text: "Mesuré à +1 an par Virtuo. Gain d'efficacité massif sur le traitement des incidents de flotte et le guidage des équipes."
         }
       ]
     },
     {
       type: "reflection",
       title: "Réflexion & Enseignements",
-      content: "Ce projet a été une démonstration majeure que le design de back-office est avant tout de l'architecture d'information et de la logique système. Les nombreuses heures de workshops avec les équipes Ops ont été cruciales pour comprendre leurs besoins réels et la tension fondamentale entre la vue macro (bird eye view) et le micro-management chirurgical, clé de l'adoption immédiate sur 30+ villes européennes."
+      content: "Ce projet a clairement démontré que le design de back-office relève avant tout de l'architecture d'information et de la logique système. Les nombreuses heures d'ateliers avec les équipes Ops ont été déterminantes pour cerner leurs besoins réels et résoudre la tension fondamentale entre la vue d'ensemble (bird's-eye view) et le micro-management chirurgical, clé de l'adoption immédiate dans 30+ villes européennes."
     }
   ]
 };

@@ -2,14 +2,14 @@ export const UI = {
   // Header
   designerBio: "UX Architect & Venture Designer spécialisé dans la conception d'outils complexes, d'apps grand public et de Design Systems",
   statusAvailable: "Disponible",
-  selectedProjects: "Projets Sélectionnés",
+  selectedProjects: "Projets sélectionnés",
   
   // CV section
   cvTitle: "Curriculum Vitae",
   downloadPdf: "Télécharger en PDF",
-  skillsTitle: "Compétences & Domaines d'Intervention",
-  experiencesTitle: "Expériences Professionnelles",
-  educationTitle: "Formation & Éducation",
+  skillsTitle: "Compétences & domaines d'intervention",
+  experiencesTitle: "Expériences professionnelles",
+  educationTitle: "Formation & diplômes",
   languagesTitle: "Langues",
   showMore: "Voir plus",
   showLess: "Voir moins ↑",
@@ -21,7 +21,7 @@ export const UI = {
   footerHeading: "Travaillons ensemble.",
   footerSub: "Une idée de projet ou une opportunité ? N'hésitez pas à me contacter.",
   copyEmail: "Copier l'email",
-  emailCopied: "Email copié dans le presse-papier !",
+  emailCopied: "Email copié dans le presse-papiers !",
   allRightsReserved: "Tous droits réservés.",
   
   // Project detail
@@ -29,7 +29,7 @@ export const UI = {
   roleLabel: "Rôle",
   yearLabel: "Année",
   impactLabel: "Impacts clés",
-  nextProject: "Projet Suivant",
+  nextProject: "Projet suivant",
   
   // Page title
   pageTitle: "Bertrand Humm — UX Architect & Venture Designer",

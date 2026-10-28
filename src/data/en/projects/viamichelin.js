@@ -34,7 +34,7 @@ export default {
         {
           num: "01",
           title: "Surgical Route Search",
-          description: "Data-driven research to pinpoint friction points in the legacy version and rethink a dynamic flow, aiming to surface varied and easily comparable route alternatives as fast as possible. This was ViaMichelin's core DNA and credibility needed to be restored to this core feature.",
+          description: "Data-driven research to pinpoint friction points in the legacy version and rethink a dynamic flow, aiming to surface varied and easily comparable route alternatives as fast as possible. This was ViaMichelin's core DNA and credibility needed to be restored to this landmark capability.",
           images: [
             { src: "assets/projects/viamichelin-iti-1.webp", label: "Route options" },
             { src: "assets/projects/viamichelin-iti-2.webp", label: "Results & comparator" }
@@ -43,7 +43,7 @@ export default {
         {
           num: "02",
           title: "Exploration at the Heart of the Interface",
-          description: "Every screen encourages exploring the territory. At destination, Michelin curation is showcased; along the road, the interface suggests alternative itineraries to discover scenic drives, hidden gems, or the best Michelin Guide recommendations.",
+          description: "Every screen encourages exploring the surrounding regions. At the destination, Michelin curation is highlighted; along the route, the interface suggests alternative itineraries to discover scenic drives, hidden gems, or the best Michelin Guide recommendations.",
           images: [
             { src: "assets/projects/viamichelin-exploration-1.webp", label: "Stopover recommendation on A6" }
           ]
@@ -51,7 +51,7 @@ export default {
         {
           num: "03",
           title: "Strategic Retention of Legacy Features",
-          description: "A loyal cohort relies on ViaMichelin for unique capabilities (caravan mode, exact toll/fuel cost calculations, expense report data). These had to be preserved while seamlessly blending into the new paradigm. Legacy features didn't disappear — they integrated into a broader vision.",
+          description: "A loyal cohort relies on ViaMichelin for unique capabilities (caravan mode, exact toll/fuel cost calculations, expense report data). These had to be preserved while seamlessly blending into the new paradigm. Legacy features didn't disappear — they were seamlessly integrated into a broader vision.",
           images: [
             { src: "assets/projects/viamichelin-legacy-1.webp", label: "Detailed cost breakdown" },
             { src: "assets/projects/viamichelin-legacy-2.webp", label: "The famous 'Caravan option'" },
@@ -65,7 +65,7 @@ export default {
           images: [
             { src: "assets/projects/viamichelin-ads-1.webp", label: "Legacy display ad banner" },
             { src: "assets/projects/viamichelin-ads-2.webp", label: "Native ad within route list" },
-            { src: "assets/projects/viamichelin-ads-3.webp", label: "Contextual Blablacar integration" }
+            { src: "assets/projects/viamichelin-ads-3.webp", label: "Contextual BlaBlaCar integration" }
           ]
         },
         {

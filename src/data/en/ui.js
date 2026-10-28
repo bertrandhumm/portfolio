@@ -1,6 +1,6 @@
 export const UI = {
   // Header
-  designerBio: "UX Architect & Venture Designer specializing in complex tools, large scale apps and Design Systems",
+  designerBio: "UX Architect & Venture Designer specializing in complex tools, large-scale apps, and Design Systems",
   statusAvailable: "Available",
   selectedProjects: "Selected Projects",
   
@@ -19,7 +19,7 @@ export const UI = {
   
   // Footer
   footerHeading: "Let's work together.",
-  footerSub: "Have a project idea or opportunity? Don't hesitate to reach out.",
+  footerSub: "Have a project in mind or an opportunity? Feel free to reach out.",
   copyEmail: "Copy email",
   emailCopied: "Email copied to clipboard!",
   allRightsReserved: "All rights reserved.",
@@ -28,7 +28,7 @@ export const UI = {
   backToProjects: "Back to projects",
   roleLabel: "Role",
   yearLabel: "Year",
-  impactLabel: "Key Impacts",
+  impactLabel: "Key Impact",
   nextProject: "Next Project",
   
   // Page title

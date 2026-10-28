@@ -51,7 +51,7 @@ export default {
         {
           num: "03",
           title: "Super User Modes",
-          description: "The 'one operator = one screen' model collapsed with operational diversification. I redesigned permissions and views to cater to different operational profiles: standard preparator, jockey/transporter, and station lead. Each role gets dedicated flows and tailored access.",
+          description: "The 'one operator = one screen' model collapsed with operational diversification. I redesigned permissions and views to cater to different operational profiles: standard vehicle preparer, jockey/transporter, and station lead. Each role gets dedicated flows and tailored access.",
           images: [
             { src: "assets/projects/virtuo-expertapp-superuser-3.webp", label: "Team tracking and vehicle prep mission monitoring" }
           ]
@@ -62,7 +62,7 @@ export default {
           description: "Recurring missions are dispatched automatically. For urgent tasks and ad-hoc jobs, I designed an on-demand task marketplace ('The Pool') where field operators can claim extra missions based on proximity and real-time availability.",
           images: [
             {
-              src: "assets/projects/virtuo-expertapp-pool-1.webp", label: "Calendar and 'Pool' view allowing operators to accept extra missions"
+              src: "assets/projects/virtuo-expertapp-pool-1.webp", label: "Calendar and \"Pool\" views allowing operators to accept extra missions"
             }
           ]
         }
@@ -71,9 +71,9 @@ export default {
     {
       type: "bento",
       title: "Field Usability Testing & Rollout",
-      content: "Final validation on clickable lofi prototypes tested on mobile to verify messaging clarity, offline state resilience, and error handling, followed by a phased module-by-module rollout to smooth the operational transition.",
+      content: "Final validation on clickable low-fi prototypes tested on mobile to verify messaging clarity, offline state resilience, and error handling, followed by a phased module-by-module rollout to smooth the operational transition.",
       images: [
-        { src: "assets/projects/virtuo-expertapp-test-1.webp", label: "Usability testing on lofi prototypes under real conditions" },
+        { src: "assets/projects/virtuo-expertapp-test-1.webp", label: "Usability testing on low-fi prototypes under real conditions" },
         { src: "assets/projects/virtuo-expertapp-test-2.webp", label: "Design and validation of error handling & offline states" }
       ]
     },

@@ -2,7 +2,7 @@ export default {
   id: "virtuo-backoffice",
   order: 2,
   title: "Virtuo Back Office",
-  description: "Complete overhaul of a mission-critical operational tool supervising 5,000+ vehicles across 30+ European cities with a new 'Dashboard as a pivot' architecture, contextual slide-over drawers, and GDPR compliance.",
+  description: "Complete overhaul of a mission-critical operational tool supervising 5,000+ vehicles across 30+ European cities with a new \"Dashboard as a Pivot\" architecture, contextual slide-over drawers, and GDPR compliance.",
   tags: ["Service Design", "Back Office", "B2B"],
   role: "UX Designer",
   year: "2020 - 2021",
@@ -19,12 +19,12 @@ export default {
     {
       type: "text",
       title: "Context",
-      content: "Virtuo's back office centralized the management of a 100% connected fleet of over 5,000+ vehicles across 30+ European cities. Built piece-by-piece since the startup's inception, the system had become an unstable, fragmented patchwork.\n\nOps teams faced severe daily friction: data fragmentation across Looker and the BO, compulsive multi-tabbing, lack of saved filters, and critical GDPR compliance gaps."
+      content: "Virtuo's back office centralized the management of a 100% connected fleet of 5,000+ vehicles across 30+ European cities. Built piece-by-piece since the startup's inception, the system had become an unstable, fragmented patchwork.\n\nOps teams faced severe daily friction: data fragmentation across Looker and the BO, compulsive multi-tabbing, lack of saved filters, and critical GDPR compliance gaps."
     },
     {
       type: "text",
       title: "Methodology",
-      content: "I conducted a deep-dive audit combining extensive qualitative interviews and workshops with Ops and Tech teams, backed by database pagetree mapping and competitive benchmarking.\n\nThe diagnostic highlighted the core operational tension: balancing a high-level bird's eye view of the fleet with surgical micro-management of individual vehicles and incidents.\n\nTo ensure swift delivery, design was structured across 4 iterative wireframing sprints aligned with weekly three-way sign-off reviews (Product Manager, Tech Lead, and Ops Teams)."
+      content: "I conducted a deep-dive audit combining extensive qualitative interviews and workshops with Ops and Tech teams, backed by information architecture mapping and competitive benchmarking.\n\nThe diagnostic highlighted the core operational tension: balancing a high-level bird's-eye view of the fleet with surgical micro-management of individual vehicles and incidents.\n\nTo ensure swift delivery, design was structured across 4 iterative wireframing sprints aligned with weekly three-way sign-off reviews (Product Manager, Tech Lead, and Ops teams)."
     },
     {
       type: "principles",
@@ -32,7 +32,7 @@ export default {
       items: [
         {
           num: "01",
-          title: "The « Dashboard as a Pivot » & Nested Contextual Drawers",
+          title: "The \"Dashboard as a Pivot\" & Nested Contextual Drawers",
           description: "I proposed repositioning the back office as the operational source of truth to reduce reliance on Looker in daily workflows. To eliminate compulsive multi-tabbing, the macro fleet view remains anchored in the background while contextual slide-over drawers cascade on the right to inspect vehicles and trigger actions without losing context.",
           images: [
             { src: "assets/projects/virtuo-backoffice-pivot-1.webp", label: "Compact fleet overview layout" },
@@ -73,14 +73,14 @@ export default {
         },
         {
           highlight: "-40% Ops Handling Time*",
-          text: "Self-reported at +1Y by Virtuo. Massive efficiency gain on fleet incident handling and field guidance."
+          text: "Measured after 1 year by Virtuo. Massive efficiency gain on fleet incident handling and field guidance."
         }
       ]
     },
     {
       type: "reflection",
       title: "Reflection & Learnings",
-      content: "This project proved that back-office design is fundamentally about information architecture and system dynamics. The extensive hours of workshops with Ops teams were crucial to understanding their real needs and the fundamental tension between the macro bird's eye view and surgical micro-management, which ensured immediate adoption across 30+ European cities."
+      content: "This project proved that back-office design is fundamentally about information architecture and system dynamics. The extensive hours of workshops with Ops teams were crucial to understanding their real needs and the fundamental tension between the macro bird's-eye view and surgical micro-management, which ensured immediate adoption across 30+ European cities."
     }
   ]
 };

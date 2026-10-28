@@ -2,8 +2,8 @@ export const RESUME_DATA = {
   skills: [
     "Experience Design",
     "Interaction Design",
-    "Rapid prototyping",
-    "User research",
+    "Rapid Prototyping",
+    "User Research",
     "Product Architecture",
     "Design Systems",
     "B2B SaaS & Back-Office",
@@ -20,7 +20,7 @@ export const RESUME_DATA = {
       period: "2026",
       location: "Paris, France",
       highlights: [
-        "Conceived and designed a digital trusted third party for fair family inheritance and asset sharing.",
+        "Conceived and designed a trusted, impartial digital third party for fair family inheritance and asset sharing.",
         "Built end-to-end UX: AI-assisted item cataloging, blind preference workflows, and custom equity arbitrage algorithms.",
         "Engineered resilient offline-first mobile architecture (Flutter/Hive) producing automated legal reports validated by notaries."
       ]
@@ -32,7 +32,7 @@ export const RESUME_DATA = {
       period: "2023 – 2025",
       location: "Paris & Clermont-Ferrand",
       highlights: [
-        "Led the ViaMichelin design pivot from pure navigation utility to a territory discovery & editorial “Slow Travel” platform.",
+        "Led the ViaMichelin design pivot from pure navigation utility to a territory discovery & editorial \"Slow Travel\" platform.",
         "Ran extensive user research labs, prototyping sprints, and executive alignment workshops.",
         "Managed a team of 3 designers and built a multi-platform Design System from scratch (200+ components).",
         "Improved Play Store rating from 3.7 to 4.0 while seamlessly integrating high-yield contextual advertising."
@@ -71,7 +71,7 @@ export const RESUME_DATA = {
       highlights: [
         "Revamped the core operational back-office into a single source of truth supervising 5,000+ connected vehicles across 30+ European cities (6 countries).",
         "Introduced the 'Dashboard as a Pivot' architecture with slide-over drawers and strict GDPR compliance, cutting ops resolution times by 40%.",
-        "Redesigned the field Expert mobile app used by hundreds of field operators with modular missions and one-thumb ergonomics (+28 pts NPS, -11% dispatch errors)."
+        "Redesigned the field Expert mobile app used by hundreds of field operators with modular missions and one-thumb ergonomics (+28 pts NPS, -11% dispatch errors).",
       ]
     },
     {
@@ -113,7 +113,7 @@ export const RESUME_DATA = {
       period: "2010 – 2012",
       location: "Issy-les-Moulineaux, France",
       highlights: [
-        "Supported the TOP40 Microsoft partners in transitioning to business cloud solutions and monitored market penetration performance."
+        "Supported the Top 40 Microsoft partners in transitioning to business cloud solutions and monitored market penetration performance."
       ]
     }
   ],
@@ -140,8 +140,8 @@ export const RESUME_DATA = {
   ],
 
   languages: [
-    { name: "English", level: "Native or bilingual proficiency", detail: "5+ years living & working in London" },
-    { name: "French", level: "Native or bilingual proficiency", detail: "Mother tongue" },
+    { name: "English", level: "Bilingual", detail: "5+ years living & working in London" },
+    { name: "French", level: "Native", detail: "Mother tongue" },
     { name: "German", level: "Limited working proficiency", detail: "Professional working knowledge" }
   ]
 };

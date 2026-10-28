@@ -10,7 +10,7 @@ export const RESUME_DATA = {
     "0-to-1 Venture Design"
   ],
 
-  summary: "Senior Lead Product & UX Designer avec plus de 12 ans d'expérience couvrant la création de produits (0-to-1), les scale-ups tech en hyper-croissance, les écosystèmes B2B complexes et les agences de design londoniennes de premier plan. Spécialisé dans la transformation de problématiques opérationnelles critiques et denses en données en outils clairs et intuitifs, ainsi que dans l'architecture de Design Systems multi-plateformes.",
+  summary: "Senior Lead Product & UX Designer avec plus de 12 ans d'expérience couvrant la création de produits (0-to-1), les scale-ups tech en hypercroissance, les écosystèmes B2B complexes et les agences de design londoniennes de premier plan. Spécialisé dans la transformation de problématiques opérationnelles critiques et denses en données en outils clairs et intuitifs, ainsi que dans l'architecture de Design Systems multiplateformes.",
 
   experiences: [
     {
@@ -20,9 +20,9 @@ export const RESUME_DATA = {
       period: "2026",
       location: "Paris, France",
       highlights: [
-        "Conception d'un tiers de confiance numérique pour le partage équitable de successions et biens familiaux.",
-        "UX de bout en bout : catalogage assisté par IA, workflows de préférence en aveugle et algorithmes d'arbitrage d'équité sur mesure.",
-        "Architecture mobile offline-first résiliente (Flutter/Hive) générant des rapports légaux automatisés validés par des notaires."
+        "Conception d'un tiers de confiance numérique pour le partage équitable de successions et de biens familiaux.",
+        "UX de bout en bout : catalogage assisté par IA, workflows de préférences à l'aveugle et algorithmes d'arbitrage d'équité sur mesure.",
+        "Architecture mobile offline-first résiliente (Flutter/Hive) générant des rapports juridiques automatisés validés par des notaires."
       ]
     },
     {
@@ -32,10 +32,10 @@ export const RESUME_DATA = {
       period: "2023 – 2025",
       location: "Paris & Clermont-Ferrand",
       highlights: [
-        "Direction du pivot design de ViaMichelin : d'un outil de navigation pur vers une plateforme de découverte territoriale et éditoriale « Slow Travel ».",
+        "Direction du pivot design de ViaMichelin : d'un simple outil de navigation vers une plateforme de découverte territoriale et éditoriale « Slow Travel ».",
         "Animation de labs de user research, sprints de prototypage et workshops d'alignement avec la direction.",
-        "Management d'une équipe de 3 designers et création d'un Design System multi-plateforme from scratch (200+ composants).",
-        "Amélioration de la note Play Store de 3.7 à 4.0 tout en intégrant de la publicité contextuelle à haut rendement."
+        "Management d'une équipe de 3 designers et création d'un Design System multiplateforme from scratch (200+ composants).",
+        "Amélioration de la note Play Store de 3,7 à 4,0 tout en intégrant de la publicité contextuelle à haut rendement."
       ]
     },
     {
@@ -46,7 +46,7 @@ export const RESUME_DATA = {
       location: "Paris, France",
       highlights: [
         "Architecture 0-to-1 du CMS Digster pour la curation de contenus globale et la gestion automatisée de playlists.",
-        "Rédaction de spécifications fonctionnelles complètes et wireframes pour la gestion complexe des droits multi-territoires et cas juridiques limites.",
+        "Rédaction de spécifications fonctionnelles complètes et conception de wireframes pour la gestion complexe des droits multiterritoires et des cas limites juridiques.",
         "Conception de workflows augmentés par l'IA pour la découverte intelligente de contenus et la maintenance du catalogue."
       ]
     },
@@ -57,7 +57,7 @@ export const RESUME_DATA = {
       period: "2021",
       location: "Paris, France",
       highlights: [
-        "Optimisation de 4 plateformes back-office critiques pour la Préparation des Ventes, focus sur des workflows haute-efficacité pour les power users internes.",
+        "Optimisation de 4 plateformes back-office critiques pour la préparation des ventes, focus sur des workflows à haute efficacité pour les power users internes.",
         "Collaboration avec des data scientists pour transformer des logiques de données complexes en interfaces intuitives pour la prise de décisions opérationnelles à fort enjeu.",
         "Pilotage de la transition organisationnelle de Sketch vers Figma, refonte d'une Design Library scalable et des UX guidelines."
       ]
@@ -70,8 +70,8 @@ export const RESUME_DATA = {
       location: "Paris, France",
       highlights: [
         "Refonte du back-office opérationnel central en single source of truth supervisant 5 000+ véhicules connectés sur 30+ villes européennes (6 pays).",
-        "Introduction de l'architecture « Dashboard as a Pivot » avec slide-over drawers et conformité RGPD stricte, réduisant les temps de résolution ops de 40%.",
-        "Redesign de l'app mobile Expert terrain pour des centaines de préparateurs avec missions modulaires et ergonomie one-thumb (+28 pts NPS, -11% erreurs de dispatch)."
+        "Introduction de l'architecture « Dashboard as a Pivot » avec slide-over drawers et conformité RGPD stricte, réduisant les temps de résolution ops de 40 %.",
+        "Redesign de l'app mobile Expert terrain pour des centaines de préparateurs avec missions modulaires et ergonomie one-thumb (+28 pts NPS, -11 % d'erreurs de dispatch)."
       ]
     },
     {
@@ -103,7 +103,7 @@ export const RESUME_DATA = {
       period: "2012 – 2015",
       location: "Paris, France",
       highlights: [
-        "Co-fondation d'un studio digital concevant et développant des applications web responsive sur mesure (INSERM, Wax Science, BeautyTroc)."
+        "Co-fondation d'un studio digital concevant et développant des applications web responsives sur mesure (INSERM, Wax Science, BeautyTroc)."
       ]
     },
     {
@@ -113,7 +113,7 @@ export const RESUME_DATA = {
       period: "2010 – 2012",
       location: "Issy-les-Moulineaux, France",
       highlights: [
-        "Accompagnement des TOP40 partenaires Microsoft dans la transition vers les solutions cloud métier et suivi des indicateurs de pénétration marché."
+        "Accompagnement du Top 40 des partenaires Microsoft dans la transition vers les solutions cloud métier et suivi des indicateurs de pénétration du marché."
       ]
     }
   ],
@@ -123,7 +123,7 @@ export const RESUME_DATA = {
       school: "ESSEC Business School",
       degree: "Bachelor en Management Entrepreneurial & PME",
       period: "2007 – 2011",
-      details: "Compagnie de Théâtre & Bureau des Élèves"
+      details: "Compagnie de théâtre & Bureau des élèves"
     },
     {
       school: "University of Victoria",
@@ -141,7 +141,7 @@ export const RESUME_DATA = {
 
   languages: [
     { name: "Anglais", level: "Bilingue", detail: "5+ ans de vie & travail à Londres" },
-    { name: "Français", level: "Langue maternelle", detail: "Langue natale" },
+    { name: "Français", level: "Langue maternelle", detail: "Langue maternelle" },
     { name: "Allemand", level: "Professionnel limité", detail: "Compétence professionnelle de base" }
   ]
 };
