@@ -32,7 +32,7 @@ export const RESUME_DATA = {
       period: "2023 – 2025",
       location: "Paris & Clermont-Ferrand",
       highlights: [
-        "Direction du pivot design de ViaMichelin : d'un simple outil de navigation vers une plateforme de découverte territoriale et éditoriale « Slow Travel ».",
+        "Direction du pivot design de ViaMichelin : d'un simple outil de navigation vers une plateforme de découverte territoriale « Slow Travel ».",
         "Animation de labs de user research, sprints de prototypage et workshops d'alignement avec la direction.",
         "Management d'une équipe de 3 designers et création d'un Design System multiplateforme from scratch (200+ composants).",
         "Amélioration de la note Play Store de 3,7 à 4,0 tout en intégrant de la publicité contextuelle à haut rendement."
@@ -46,7 +46,8 @@ export const RESUME_DATA = {
       location: "Paris, France",
       highlights: [
         "Architecture 0-to-1 du CMS Digster pour la curation de contenus globale et la gestion automatisée de playlists.",
-        "Rédaction de spécifications fonctionnelles complètes et conception de wireframes pour la gestion complexe des droits multiterritoires et des cas limites juridiques.",
+        "Rédaction de spécifications fonctionnelles complètes.",
+        "Conception de wireframes pour la gestion complexe des droits multiterritoires et des cas limites juridiques.",
         "Conception de workflows augmentés par l'IA pour la découverte intelligente de contenus et la maintenance du catalogue."
       ]
     },
@@ -69,9 +70,9 @@ export const RESUME_DATA = {
       period: "2019 – 2021",
       location: "Paris, France",
       highlights: [
-        "Refonte du back-office opérationnel central en single source of truth supervisant 5 000+ véhicules connectés sur 30+ villes européennes (6 pays).",
-        "Introduction de l'architecture « Dashboard as a Pivot » avec slide-over drawers et conformité RGPD stricte, réduisant les temps de résolution ops de 40 %.",
-        "Redesign de l'app mobile Expert terrain pour des centaines de préparateurs avec missions modulaires et ergonomie one-thumb (+28 pts NPS, -11 % d'erreurs de dispatch)."
+        "Refonte du back-office opérationnel central en single source of truth supervisant 5 000+ véhicules connectés sur 30+ villes européennes.",
+        "Introduction de l'architecture « Dashboard as a Pivot », réduisant les temps de résolution ops de 40 %.",
+        "Redesign de l'app mobile dediée aux centaines de préparateurs. Missions modulaires et ergonomie one-thumb (Satisfaction : 6 → 8,5/10)."
       ]
     },
     {
@@ -81,7 +82,7 @@ export const RESUME_DATA = {
       period: "2017 – 2019",
       location: "Londres, Royaume-Uni",
       highlights: [
-        "Livraison d'experience design et Design Systems pour des clients grands comptes (Allen & Overy, ArcelorMittal, Superdrug, Northumbrian Water).",
+        "Livraison d'experience design et Design Systems pour des clients grands comptes (Allen & Overy, ArcelorMittal, Superdrug...).",
         "Conception et validation de user flows complexes via des labs de tests interactifs."
       ]
     },
@@ -92,7 +93,7 @@ export const RESUME_DATA = {
       period: "2015 – 2017",
       location: "Londres, Royaume-Uni",
       highlights: [
-        "Conduite d'entretiens utilisateurs, workshops stakeholders et cartographie de user journeys pour des institutions publiques et des ONG internationales.",
+        "Conduite d'entretiens utilisateurs, workshops stakeholders et cartographie de user journeys.",
         "Livraison de prototypes interactifs et wireflows pour British Library, Save the Children, Freeview, Science Museum, Cornwall Council."
       ]
     },
@@ -113,7 +114,8 @@ export const RESUME_DATA = {
       period: "2010 – 2012",
       location: "Issy-les-Moulineaux, France",
       highlights: [
-        "Accompagnement du Top 40 des partenaires Microsoft dans la transition vers les solutions cloud métier et suivi des indicateurs de pénétration du marché."
+        "Accompagnement du Top 40 des partenaires Microsoft dans la transition vers les solutions cloud métier",
+        "Suivi des indicateurs de pénétration du marché."
       ]
     }
   ],

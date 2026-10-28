@@ -6,7 +6,7 @@ export default {
   tags: ["Mobile App", "Power users", "UX Research"],
   role: "UX Designer",
   year: "2019 - 2020",
-  impact: "Error reduction / Boosted NPS",
+  impact: "Error reduction / Higher satisfaction",
 
   // Thumbnail Home & Hero Cover Image
   thumbnail: "assets/projects/virtuo-expertapp-hero.webp",
@@ -82,8 +82,8 @@ export default {
       title: "Results & Impact",
       items: [
         {
-          highlight: "NPS +28 pts",
-          text: "Field expert satisfaction surged, rising from a score of 6/10 to 8.5/10."
+          highlight: "Satisfaction: 6 → 8.5/10",
+          text: "Overall field expert satisfaction surged under real-world operating conditions."
         },
         {
           highlight: "-11%",

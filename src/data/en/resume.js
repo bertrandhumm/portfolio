@@ -71,7 +71,7 @@ export const RESUME_DATA = {
       highlights: [
         "Revamped the core operational back-office into a single source of truth supervising 5,000+ connected vehicles across 30+ European cities (6 countries).",
         "Introduced the 'Dashboard as a Pivot' architecture with slide-over drawers and strict GDPR compliance, cutting ops resolution times by 40%.",
-        "Redesigned the field Expert mobile app used by hundreds of field operators with modular missions and one-thumb ergonomics (+28 pts NPS, -11% dispatch errors).",
+        "Redesigned the field Expert mobile app used by hundreds of field operators with modular missions and one-thumb ergonomics (Satisfaction: 6 → 8.5/10, -11% dispatch errors).",
       ]
     },
     {

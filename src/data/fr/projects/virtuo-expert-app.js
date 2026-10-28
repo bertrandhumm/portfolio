@@ -6,7 +6,7 @@ export default {
   tags: ["Mobile App", "Power users", "UX Research"],
   role: "UX Designer",
   year: "2019 - 2020",
-  impact: "Réduction des erreurs / NPS amélioré",
+  impact: "Réduction des erreurs / Satisfaction en hausse",
 
   // Thumbnail Home & Hero Cover Image
   thumbnail: "assets/projects/virtuo-expertapp-hero.webp",
@@ -82,8 +82,8 @@ export default {
       title: "Résultats & Impact",
       items: [
         {
-          highlight: "NPS +28 pts",
-          text: "Satisfaction des préparateurs terrain en nette hausse, passant d'un score de 6/10 à 8,5/10."
+          highlight: "Satisfaction : 6 → 8,5/10",
+          text: "Score de satisfaction globale des préparateurs en nette progression sur le terrain."
         },
         {
           highlight: "-11 %",
