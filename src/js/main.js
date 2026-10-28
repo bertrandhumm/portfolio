@@ -101,6 +101,86 @@ function clearPortfolioPrintStyles() {
   }
 }
 
+/**
+ * Automatically downscale and convert print images to optimized JPEG
+ * so Chromium Skia PDF engine uses lossy DCTDecode instead of 18MB lossless raw FlateDecode bitmaps.
+ */
+async function optimizeImagesForPrint(container) {
+  if (!container) return;
+
+  // 1. Convert any video tags to static image snapshots at high resolution
+  const videos = Array.from(container.querySelectorAll('video'));
+  for (const video of videos) {
+    try {
+      const canvas = document.createElement('canvas');
+      canvas.width = Math.min(video.videoWidth || 960, 1280);
+      canvas.height = Math.round((canvas.width * (video.videoHeight || 540)) / (video.videoWidth || 960));
+      const ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const img = document.createElement('img');
+      img.src = canvas.toDataURL('image/jpeg', 0.92);
+      img.className = video.className;
+      img.alt = video.getAttribute('aria-label') || '';
+      video.parentNode.replaceChild(img, video);
+    } catch (e) {}
+  }
+
+  // 2. Convert images to high-fidelity JPEG for crisp A4 print (quality 0.92, high smoothing)
+  const imgs = Array.from(container.querySelectorAll('img'));
+  await Promise.all(imgs.map(img => {
+    return new Promise(resolve => {
+      const process = () => {
+        try {
+          if (img.dataset.printOptimized || !img.naturalWidth) {
+            resolve();
+            return;
+          }
+          const isHero = img.classList.contains('hero-img');
+          const maxDim = isHero ? 1600 : 1300;
+          let w = img.naturalWidth;
+          let h = img.naturalHeight;
+
+          if (w > maxDim || h > maxDim) {
+            if (w > h) {
+              h = Math.round((h * maxDim) / w);
+              w = maxDim;
+            } else {
+              w = Math.round((w * maxDim) / h);
+              h = maxDim;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = w;
+          canvas.height = h;
+          const ctx = canvas.getContext('2d');
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, w, h);
+          ctx.drawImage(img, 0, 0, w, h);
+
+          const jpegDataUrl = canvas.toDataURL('image/jpeg', 0.92);
+          img.src = jpegDataUrl;
+          img.dataset.printOptimized = 'true';
+        } catch (err) {}
+        resolve();
+      };
+
+      if (img.complete && img.naturalHeight > 0) {
+        process();
+      } else {
+        img.onload = process;
+        img.onerror = () => resolve();
+        const s = img.src;
+        img.src = s;
+      }
+    });
+  }));
+}
+
 function initApp() {
   // Set html lang attribute
   document.documentElement.lang = getCurrentLang();
@@ -466,20 +546,10 @@ function renderHomeView() {
       document.body.classList.remove('print-cv-mode');
       document.body.classList.add('print-portfolio-mode');
 
-      // Preload & decode all print images to ensure they render in print preview
+      // Optimize, downscale & convert all print images to lightweight JPEG for PDF export
       const printView = document.getElementById('portfolio-print-view');
       if (printView) {
-        const imgs = Array.from(printView.querySelectorAll('img'));
-        await Promise.all(imgs.map(img => {
-          img.loading = 'eager';
-          if (img.complete && img.naturalHeight > 0) return Promise.resolve();
-          return new Promise(resolve => {
-            img.onload = resolve;
-            img.onerror = resolve;
-            const s = img.src;
-            img.src = s;
-          });
-        }));
+        await optimizeImagesForPrint(printView);
       }
 
       prevDocTitle = document.title;
